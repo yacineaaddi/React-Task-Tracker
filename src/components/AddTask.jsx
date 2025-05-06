@@ -5,19 +5,30 @@ const AddTask = ({ tasklist, SetTaskList }) => {
   const [addModal, setAddModal] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    if (name === "Projectname") setProjectName(value);
+    if (name === "Projectname") {
+      setProjectName(value);
+      setErrorMessage("");
+    }
+    if (name === "Projectname" && value === "") {
+      setErrorMessage("Enter project name to continue");
+    }
     if (name === "TaskDescription") setTaskDescription(value);
   };
 
   const handleAdd = (e) => {
     e.preventDefault();
-    SetTaskList([...tasklist, { projectName, taskDescription }]);
-    setAddModal(false);
-    setProjectName("");
-    setTaskDescription("");
+    if (!projectName) {
+      setErrorMessage("Enter project name to continue");
+    } else {
+      SetTaskList([...tasklist, { projectName, taskDescription }]);
+      setAddModal(false);
+      setProjectName("");
+      setTaskDescription("");
+    }
   };
   return (
     <>
@@ -49,7 +60,7 @@ const AddTask = ({ tasklist, SetTaskList }) => {
                     Project Name
                   </label>
                   <input
-                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-5 leading-tight focus:outline-none focus:bg-white"
+                    className="w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="project-name"
                     type="text"
                     placeholder="Project name"
@@ -58,6 +69,9 @@ const AddTask = ({ tasklist, SetTaskList }) => {
                     onChange={handleInput}
                     required
                   />
+                  <p className="text-red-500 text-center mt-2 mb-5">
+                    {errorMessage}
+                  </p>
                 </div>
                 <div>
                   <label
