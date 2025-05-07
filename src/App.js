@@ -17,20 +17,15 @@ function App() {
         <h2 className="ml-6 text-xl font-semibold w-3/4 max-w-lg py-2 px-4 bg-gray-200">
           To Do :
         </h2>
-        {tasklist
-          .slice(0)
-          .reverse()
-          .map((task, i) => (
-            <>
-              <ToDo
-                key={new Date().getTime()}
-                task={task}
-                index={i}
-                tasklist={tasklist}
-                SetTaskList={SetTaskList}
-              />
-            </>
-          ))}
+        {tasklist.map((task, i) => (
+            <ToDo
+              key={i}
+              task={task}
+              index={i}
+              tasklist={tasklist}
+              SetTaskList={SetTaskList}
+            />
+        ))}
       </div>
     </>
   );
