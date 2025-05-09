@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import ToDo from "./components/ToDo";
 
 function App() {
   const [tasklist, SetTaskList] = useState([]);
+
+  useEffect(() => {
+    let array = localStorage.getItem("taskList");
+    if (array) {
+      SetTaskList(JSON.parse(array));
+    }
+  });
   return (
     <>
       <h1 className="text-2xl font-bold py-6 pl-6">Task Tracker</h1>
@@ -18,13 +25,13 @@ function App() {
           To Do :
         </h2>
         {tasklist.map((task, i) => (
-            <ToDo
-              key={i}
-              task={task}
-              index={i}
-              tasklist={tasklist}
-              SetTaskList={SetTaskList}
-            />
+          <ToDo
+            key={i}
+            task={task}
+            index={i}
+            tasklist={tasklist}
+            SetTaskList={SetTaskList}
+          />
         ))}
       </div>
     </>
