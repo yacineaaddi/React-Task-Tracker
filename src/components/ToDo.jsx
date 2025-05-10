@@ -3,7 +3,7 @@ import EditTask from "./EditTask";
 import { useState, useEffect } from "react";
 
 const ToDo = ({ task, index, tasklist, SetTaskList }) => {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(task.duration);
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
@@ -34,8 +34,8 @@ const ToDo = ({ task, index, tasklist, SetTaskList }) => {
   const handleDelete = (itemID) => {
     let removeIndex = tasklist.indexOf(task);
     tasklist.splice(removeIndex, 1);
-    A
-    );
+    localStorage.setItem("taskList", JSON.stringify(tasklist));
+    window.location.reload();
   };
   return (
     <>
@@ -80,7 +80,7 @@ const ToDo = ({ task, index, tasklist, SetTaskList }) => {
               className="border rounded-lg py-1 px-3"
               onClick={() => {
                 setTime(0);
-              }}
+              }} //BUG of Resetting the time
             >
               Reset
             </button>
