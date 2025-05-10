@@ -32,7 +32,7 @@ const AddTask = ({ tasklist, SetTaskList }) => {
         timestamp: timestamp,
         duration: 0,
       });
-      localStorage.setItem("tasklist", JSON.stringify(tempList));
+      localStorage.setItem("taskList", JSON.stringify(tempList));
       window.location.reload();
       setAddModal(false);
       setProjectName("");

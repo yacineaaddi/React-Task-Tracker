@@ -19,11 +19,14 @@ const EditTask = ({ task, index, tasklist, SetTaskList }) => {
   const handleUpdate = (e) => {
     e.preventDefault();
     let taskIndex = tasklist.indexOf(index);
-    tasklist.splice(taskIndex, 1);
-    SetTaskList([...tasklist, { projectName, taskDescription }]);
+    tasklist.splice(taskIndex, 1, {
+      projectName: projectName,
+      taskDescription: taskDescription,
+      timestamp: task.timestamp,
+      duration: task.duration,
+    });
+    localStorage.setItem("taskList");
     SetEditModal(false);
-    setProjectName("");
-    setTaskDescription("");
   };
   return (
     <>

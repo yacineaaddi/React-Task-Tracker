@@ -10,7 +10,7 @@ function App() {
     if (array) {
       SetTaskList(JSON.parse(array));
     }
-  });
+  }, []);
   return (
     <>
       <h1 className="text-2xl font-bold py-6 pl-6">Task Tracker</h1>

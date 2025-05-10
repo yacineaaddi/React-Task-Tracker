@@ -18,11 +18,23 @@ const ToDo = ({ task, index, tasklist, SetTaskList }) => {
     return () => clearInterval(interval);
   }, [running]);
 
+  const handleStop = () => {
+    setRunning(false);
+    let taskIndex = tasklist.indexOf(task);
+    tasklist.splice(taskIndex, 1, {
+      projectName: task.projectName,
+      taskDescription: task.taskDescription,
+      timestamp: task.timestamp,
+      duration: time,
+    });
+
+    localStorage.setItem("taskList", JSON.stringify(tasklist));
+    window.location.reload();
+  };
   const handleDelete = (itemID) => {
     let removeIndex = tasklist.indexOf(task);
     tasklist.splice(removeIndex, 1);
-    SetTaskList((currentTasks) =>
-      currentTasks.filter((todo) => todo.id !== itemID)
+    A
     );
   };
   return (
@@ -50,9 +62,7 @@ const ToDo = ({ task, index, tasklist, SetTaskList }) => {
             {running ? (
               <button
                 className="border rounded-lg py-1 px-3"
-                onClick={() => {
-                  setRunning(false);
-                }}
+                onClick={handleStop}
               >
                 Stop
               </button>
