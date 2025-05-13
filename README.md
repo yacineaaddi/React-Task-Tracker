@@ -1,72 +1,74 @@
-# Project Title
+# React Task Tracker
 
-A simple tracking app built with HTML, CSS, and JavaScript that tracks your workouts on an interactive map, recording key metrics like distance, duration, cadence, and elevation gain
+A simple task tracking application built with HTML, CSS, React, and JavaScript. This app allows users to manage their tasks effectively and includes a timer to track the duration spent on each task.
 
 ## Demo
 
-
+*A live demo link will be added here.*
 
 ## Features
 
-- Workout Tracking : Allows users to log workouts with details such as distance, duration, cadence, and elevation gain.
+- Task Management: Add, view, and manage tasks efficiently.
 
-- Interactive Map : Integrates a map interface to visualize workout routes.
+- Timer Functionality: Track the time spent on individual tasks to enhance productivity.
 
-- User Interface : Provides a user-friendly interface for inputting and viewing workout data.
+- Responsive Design: Ensures usability across various devices and screen sizes.
 
 ## Installation
 
 1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yacineaaddi/JS-Strivo-App.git
-   ```
+    ```bash
+    git clone https://github.com/yacineaaddi/React-Task-Tracker.git
+    ```
 
 2. Navigate to the project directory:
-
-   ```bash
-   cd project-name
-   ```
+    ```bash
+    cd React-Task-Tracker
+    ```
 
 3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 4. Start the application:
-
-   ```bash
-   npm run dev
-   ```
+    ```bash
+    npm start
+    ```
 
 ## Technologies Used
 
-- HTML : Structures the content of the web application.
+- HTML: For structuring the web content.
 
-- CSS: Styles the application for an appealing user interface.
+- CSS: For styling the application.
 
-- JavaScript : Implements the core functionality, including workout tracking and map interactions.
+- JavaScript: For implementing dynamic functionalities.
 
-- Leaflet.js : A JavaScript library for interactive maps, used to display workout routes.
+- React: For building the user interface components.
 
 ## Folder Structure
 
-```
-project-name/
+React-Task-Tracker/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
 ├── src/
 │   ├── components/
-│   ├── pages/
-│   ├── assets/
-│   └── App.js
-├── public/
+│   │   ├── Header.js
+│   │   ├── Task.js
+│   │   └── TaskList.js
+│   ├── App.js
+│   ├── index.js
+│   └── styles.css
 ├── package.json
-└── README.md
-```
+├── package-lock.json
+├── README.md
+├── LICENSE
+└── .gitignore
 
 ## Contributing
 
-Contributions are always welcome! Feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
@@ -74,6 +76,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-My Email - [yacineaaddi@gmail.com](yacineaaddi@gmail.com)
+Yacine Aaddi - [yacineaaddi@gmail.com](mailto:yacineaaddi@gmail.com)
 
-Project Link: [https://github.com/yacineaaddi/JS-Strivo-App](https://github.com/yacineaaddi/JS-Strivo-App)
+Project Link: [https://github.com/yacineaaddi/React-Task-Tracker](https://github.com/yacineaaddi/React-Task-Tracker)
