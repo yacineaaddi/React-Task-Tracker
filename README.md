@@ -4,7 +4,7 @@ A simple task tracking application built with HTML, CSS, React, and JavaScript. 
 
 ## Demo
 
-*A live demo link will be added here soon.*
+_A live demo link will be added here soon._
 
 ## Features
 
@@ -17,24 +17,27 @@ A simple task tracking application built with HTML, CSS, React, and JavaScript. 
 ## Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/yacineaaddi/React-Task-Tracker.git
-    ```
+
+   ```bash
+   git clone https://github.com/yacineaaddi/React-Task-Tracker.git
+   ```
 
 2. Navigate to the project directory:
-    ```bash
-    cd React-Task-Tracker
-    ```
+
+   ```bash
+   cd React-Task-Tracker
+   ```
 
 3. Install dependencies:
-    ```bash
-    npm install
-    ```
+
+   ```bash
+   npm install
+   ```
 
 4. Start the application:
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 ## Technologies Used
 
@@ -50,16 +53,16 @@ A simple task tracking application built with HTML, CSS, React, and JavaScript. 
 
 React-Task-Tracker/
 ├── public/
-│   ├── index.html
-│   └── favicon.ico
+│ ├── index.html
+│ └── favicon.ico
 ├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── Task.js
-│   │   └── TaskList.js
-│   ├── App.js
-│   ├── index.js
-│   └── styles.css
+│ ├── components/
+│ │ ├── Header.js
+│ │ ├── Task.js
+│ │ └── TaskList.js
+│ ├── App.js
+│ ├── index.js
+│ └── styles.css
 ├── package.json
 ├── package-lock.json
 ├── README.md
