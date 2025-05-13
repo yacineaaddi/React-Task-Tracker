@@ -4,7 +4,7 @@ A simple task tracking application built with HTML, CSS, React, and JavaScript. 
 
 ## Demo
 
-*A live demo link will be added here.*
+*A live demo link will be added here soon.*
 
 ## Features
 
@@ -38,13 +38,13 @@ A simple task tracking application built with HTML, CSS, React, and JavaScript. 
 
 ## Technologies Used
 
-- HTML: For structuring the web content.
+- HTML : For structuring the web content.
 
-- CSS: For styling the application.
+- CSS : For styling the application.
 
-- JavaScript: For implementing dynamic functionalities.
+- JavaScript : For implementing dynamic functionalities.
 
-- React: For building the user interface components.
+- React : For building the user interface components.
 
 ## Folder Structure
 
