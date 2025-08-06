@@ -8,11 +8,11 @@ _A live demo link will be added here soon._
 
 ## Features
 
-- Task Management: Add, view, and manage tasks efficiently.
+- Task Management : Add, view, and manage tasks efficiently.
 
-- Timer Functionality: Track the time spent on individual tasks to enhance productivity.
+- Timer Functionality : Track the time spent on individual tasks to enhance productivity.
 
-- Responsive Design: Ensures usability across various devices and screen sizes.
+- Responsive Design : Ensures usability across various devices and screen sizes.
 
 ## Installation
 
@@ -51,6 +51,7 @@ _A live demo link will be added here soon._
 
 ## Folder Structure
 
+```
 React-Task-Tracker/
 ├── public/
 │ ├── index.html
@@ -68,6 +69,7 @@ React-Task-Tracker/
 ├── README.md
 ├── LICENSE
 └── .gitignore
+```
 
 ## Contributing
 
