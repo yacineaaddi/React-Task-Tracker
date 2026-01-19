@@ -18,16 +18,25 @@ const EditTask = ({ task, index, tasklist, SetTaskList }) => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    let taskIndex = tasklist.indexOf(index);
-    tasklist.splice(taskIndex, 1, {
-      projectName: projectName,
-      taskDescription: taskDescription,
-      timestamp: task.timestamp,
-      duration: task.duration,
+
+    SetTaskList((prev) => {
+      const updated = prev.map((task, i) =>
+        i === index
+          ? {
+              ...task,
+              projectName,
+              taskDescription,
+            }
+          : task,
+      );
+
+      localStorage.setItem("taskList", JSON.stringify(updated));
+      return updated;
     });
-    localStorage.setItem("taskList");
+
     SetEditModal(false);
   };
+
   return (
     <>
       <button

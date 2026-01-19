@@ -1,8 +1,8 @@
 # 📦 React Task Tracker
 
-A simple task tracking application built with HTML, CSS, React, and JavaScript. This app allows users to manage their tasks effectively and includes a timer to track the duration spent on each task.
+A Kanban-style task tracking application built with React. It allows users to manage tasks efficiently, features drag-and-drop functionality for moving tasks between columns, and includes a built-in timer to track the time spent on each task
 
-## 🔗 Demo
+## 🔗 Link
 
 _A live demo link will be added here soon._
 
@@ -10,9 +10,21 @@ _A live demo link will be added here soon._
 
 - **Task Management** : Add, view, and manage tasks efficiently.
 
+- **Responsive Design** : Ensures usability across various devices and screen sizes.
+
+- **Drag and Drop** : Features drag-and-drop functionality for moving tasks between columns.
+
 - **Timer Functionality** : Track the time spent on individual tasks to enhance productivity.
 
-- **Responsive Design** : Ensures usability across various devices and screen sizes.
+## 🛠️ Technologies Used
+
+- 💻 HTML : For structuring the web content.
+
+- 🎨 TAILWIND CSS : For styling the application.
+
+- ⚙️ JavaScript : For implementing dynamic functionalities.
+
+- ⚛️ React : For building the user interface components (library used : React DnD).
 
 ## ⚙️ Installation
 
@@ -39,16 +51,6 @@ _A live demo link will be added here soon._
    npm start
    ```
 
-## 🛠️ Technologies Used
-
-- 💻 HTML : For structuring the web content.
-
-- 🎨 CSS : For styling the application.
-
-- ⚙️ JavaScript : For implementing dynamic functionalities.
-
-- ⚛️ React : For building the user interface components.
-
 ## 📁 Folder Structure
 
 ```
@@ -63,7 +65,7 @@ React-Task-Tracker/
 │ │ └── ToDo.jsx
 │ ├── App.js
 │ ├── index.js
-│ └── styles.css
+│ └── index.css
 ├── package.json
 ├── package-lock.json
 ├── README.md

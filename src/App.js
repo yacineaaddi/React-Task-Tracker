@@ -1,41 +1,8 @@
-import { useEffect, useState } from "react";
-import AddTask from "./components/AddTask";
-import ToDo from "./components/ToDo";
+import React from "react";
+import Home from "./components/Home";
 
-function App() {
-  const [tasklist, SetTaskList] = useState([]);
-
-  useEffect(() => {
-    let array = localStorage.getItem("taskList");
-    if (array) {
-      SetTaskList(JSON.parse(array));
-    }
-  }, []);
-  return (
-    <>
-      <h1 className="text-2xl font-bold py-6 pl-6">Task Tracker</h1>
-      <p className="text-xl pl-6">Hi There !</p>
-      <div className="flex flex-row items-center">
-        <p className="text-xl pl-6">Click </p>
-        <AddTask tasklist={tasklist} SetTaskList={SetTaskList} />
-        <p className="text-xl my-2">to add a new task</p>
-      </div>
-      <div>
-        <h2 className="ml-6 text-xl font-semibold w-3/4 max-w-lg py-2 px-4 bg-gray-200">
-          To Do :
-        </h2>
-        {tasklist.map((task, i) => (
-          <ToDo
-            key={i}
-            task={task}
-            index={i}
-            tasklist={tasklist}
-            SetTaskList={SetTaskList}
-          />
-        ))}
-      </div>
-    </>
-  );
-}
+const App = () => {
+  return <Home />;
+};
 
 export default App;
