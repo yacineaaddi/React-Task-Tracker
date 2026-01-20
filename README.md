@@ -1,6 +1,6 @@
-# 📦 React Task Tracker
+# 📋 React Task Tracker
 
-A Kanban-style task tracking application built with React. It allows users to manage tasks efficiently, features drag-and-drop functionality for moving tasks between columns, and includes a built-in timer to track the time spent on each task
+This project is a Kanban-style task management application designed to help users organize their work efficiently. It allows users to create, manage, and track tasks across different stages of completion
 
 ## 🔗 Link
 
@@ -8,23 +8,23 @@ _A live demo link will be added here soon._
 
 ## ✨ Features
 
-- **Task Management** : Add, view, and manage tasks efficiently.
+- **Task Management** : Add, view, and manage tasks efficiently
 
-- **Responsive Design** : Ensures usability across various devices and screen sizes.
+- **Responsive Design** : Ensures usability across various devices and screen sizes
 
-- **Drag and Drop** : Features drag-and-drop functionality for moving tasks between columns.
+- **Timer Functionality** : Track the time spent on individual tasks to enhance productivity
 
-- **Timer Functionality** : Track the time spent on individual tasks to enhance productivity.
+- **Drag and Drop** : Features drag-and-drop functionality for moving tasks between columns
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-- 💻 HTML : For structuring the web content.
+- 💻 HTML
 
-- 🎨 TAILWIND CSS : For styling the application.
+- ⚙️ JavaScript
 
-- ⚙️ JavaScript : For implementing dynamic functionalities.
+- 🎨 CSS / Tailwind
 
-- ⚛️ React : For building the user interface components (library used : React DnD).
+- ⚛️ React - library used : React DnD
 
 ## ⚙️ Installation
 
@@ -75,11 +75,11 @@ React-Task-Tracker/
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## 📬 Contact
 
