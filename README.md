@@ -2,6 +2,12 @@
 
 This project is a Kanban-style task management application designed to help users organize their work efficiently. It allows users to create, manage, and track tasks across different stages of completion
 
+![Kanban App Preview](./images/diagram.png)
+
+<p align="center">
+  <img src="./images/diagram.png" width="700" />
+</p>
+
 ## 🔗 Link
 
 _A live demo link will be added here soon._
