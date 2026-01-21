@@ -1,12 +1,12 @@
 # 📋 React Task Tracker
 
-This project is a Kanban-style task management application designed to help users organize their work efficiently. It allows users to create, manage, and track tasks across different stages of completion
+This project is a Kanban-style task management application designed to help users organize their work efficiently. It allows to create, manage, and track tasks across different stages of completion
 
-![Kanban App Preview](./images/diagram.png)
+## 👁️ Preview
 
-<p align="center">
-  <img src="./images/diagram.png" width="700" />
-</p>
+A preview of the application
+
+![Kanban App Preview](./images/tasktracker.gif)
 
 ## 🔗 Link
 
@@ -63,10 +63,11 @@ _A live demo link will be added here soon._
 React-Task-Tracker/
 ├── public/
 │ ├── index.html
-│ └── favicon.ico
+│ └── favicon.png
 ├── src/
 │ ├── components/
 │ │ ├── AddTask.jsx
+│ │ ├── Home.jsx
 │ │ ├── EditTask.jsx
 │ │ └── ToDo.jsx
 │ ├── App.js

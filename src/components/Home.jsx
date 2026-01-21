@@ -1,56 +1,81 @@
-import React from "react";
+// Imports the AddTask component
 import AddTask from "./AddTask";
+
+// Imports the ToDo component
 import ToDo from "./ToDo";
+
+//Import Usestate and Useeffect from react
 import { useEffect, useState } from "react";
+
+// useDrop hook from react-dnd
 import { useDrop } from "react-dnd";
 
 export default function Home() {
+  // State to store the list of current (active) tasks
   const [tasklist, SetTaskList] = useState([]);
+
+  // State to store the list of completed tasks
   const [completed, SetCompleted] = useState([]);
 
   useEffect(() => {
-    let array = localStorage.getItem("taskList");
-    if (array) {
-      SetTaskList(JSON.parse(array));
+    // Retrieve stored tasks from localStorage on component mount
+    let Currtasks = localStorage.getItem("taskList");
+    let Completedtasks = localStorage.getItem("completed");
+
+    // If there is stored data, update state from localStorage
+    if (Currtasks || Completedtasks) {
+      SetTaskList(JSON.parse(Currtasks));
+      SetCompleted(JSON.parse(Completedtasks));
     }
   }, []);
 
   const [{ isOver }, drop] = useDrop(() => ({
+    // Specifies the accepted draggable item type
     accept: "todo",
-    drop: (item) =>
-      addToCompleted(
-        item.id,
-        item.projectName,
-        item.taskDescription,
-        item.timestamp,
-        item.duration,
-      ),
+
+    // Triggered when a draggable item is dropped on this component
+    drop: (item) => console.log(item.duration),
+
+    // Collects drop state to know whether an item is currently over the drop area
     collect: (monitor) => ({
       isOver: monitor.isOver(),
     }),
   }));
 
-  const addToCompleted = (
-    id,
-    projectName,
-    taskDescription,
-    timestamp,
-    duration,
-  ) => {
-    const moveTask = tasklist.filter((task) => id === task.id);
-    SetCompleted((completed) => [
-      ...completed,
-      { moveTask, projectName, taskDescription, timestamp, duration },
-    ]);
-    /* handleDelete(moveTask);*/
+  const addToCompleted = (item) => {
+    // Add the dropped task to the completed list
+    console.log(item);
+    SetCompleted((prev) => {
+      const updated = [...prev, { ...item }];
+      localStorage.setItem("completed", JSON.stringify(updated));
+      return updated;
+    });
+
+    // Remove the task from the active task list
+    SetTaskList((prev) => {
+      const updated = prev.filter((task) => task.id !== item.id);
+      localStorage.setItem("taskList", JSON.stringify(updated));
+      return updated;
+    });
   };
-  const handleDelete = (task) => {
-    let removeIndex = tasklist.indexOf(task);
-    const updated = [...tasklist];
+
+  const handleDelete = (task, list, setList, storagekey) => {
+    // Find the index of the task to be removed in the given list
+    let removeIndex = list.indexOf(task);
+
+    // Create a shallow copy of the list to avoid direct mutation
+    const updated = [...list];
+
+    // Remove the task at the found index
     updated.splice(removeIndex, 1);
-    SetTaskList(updated);
-    localStorage.setItem("taskList", JSON.stringify(updated));
+
+    // Update the corresponding state
+    setList(updated);
+
+    // Persist the updated list to localStorage
+    localStorage.setItem(storagekey, JSON.stringify(updated));
   };
+
   return (
     <>
       <h1 className="text-2xl font-bold py-6 pl-6">Task Tracker</h1>
@@ -60,35 +85,42 @@ export default function Home() {
         <AddTask tasklist={tasklist} SetTaskList={SetTaskList} />
         <p className="text-xl my-2">to add a new task</p>
       </div>
-      <div className="flex flex-row">
-        <div className="w-full">
-          <h2 className="ml-6 text-xl font-semibold w-3/4 max-w-lg py-2 px-4 bg-gray-200">
+      <div className="flex sm:flex-row flex-col ">
+        <div className="w-full  sm:p-6 py-6 flex flex-col items-center">
+          <h2 className="text-xl font-semibold w-3/4 max-w-lg py-2 px-4 bg-gray-200">
             To Do :
           </h2>
-          <div className="ml-6 flex flex-col-reverse">
-            {tasklist.map((task, i) => (
-              <ToDo
-                key={i}
-                task={task}
-                index={i}
-                tasklist={tasklist}
-                SetTaskList={SetTaskList}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </div>
+          {tasklist.map((task, i) => (
+            <ToDo
+              key={task.id}
+              task={task}
+              index={i}
+              list={tasklist}
+              setList={SetTaskList}
+              storagekey="taskList"
+              onDelete={(task) =>
+                handleDelete(task, tasklist, SetTaskList, "taskList")
+              }
+            />
+          ))}
         </div>
-        <div className="w-full flex flex-col" ref={drop}>
+        <div
+          className="w-full  sm:p-8 p-2 flex flex-col items-center"
+          ref={drop}
+        >
           <h2 className="text-xl font-semibold w-3/4 max-w-lg py-2 px-4 bg-gray-200">
             Completed :
           </h2>
           {completed.map((task, i) => (
             <ToDo
-              key={i}
-              task={task}
+              key={task.id}
               index={i}
-              tasklist={tasklist}
-              SetTaskList={SetTaskList}
+              list={completed}
+              setList={SetCompleted}
+              storagekey="completed"
+              onDelete={(task) =>
+                handleDelete(task, completed, SetCompleted, "completed")
+              }
             />
           ))}
         </div>

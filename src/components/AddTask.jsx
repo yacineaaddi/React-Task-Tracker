@@ -1,44 +1,70 @@
-import React from "react";
+//Import Usestate from react
 import { useState } from "react";
 
 const AddTask = ({ tasklist, SetTaskList }) => {
+  // State to control visibility of the add-task modal
   const [addModal, setAddModal] = useState(false);
+
+  // State to store the project name input value
   const [projectName, setProjectName] = useState("");
+
+  // State to store the task description input value
   const [taskDescription, setTaskDescription] = useState("");
+
+  // State to store validation or error messages
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Handles input changes for form fields
   const handleInput = (e) => {
     const { name, value } = e.target;
+
+    // Update project name when its input changes
     if (name === "Projectname") {
       setProjectName(value);
     }
+
+    // Show error message if project name is empty
     if (name === "Projectname" && value === "") {
       setErrorMessage("Enter project name to continue");
     }
+
+    // Update task description when its input changes
     if (name === "TaskDescription") setTaskDescription(value);
   };
 
+  // Handles form submission for adding a new task
   const handleAdd = (e) => {
     e.preventDefault();
+
+    // Validate required project name field
     if (!projectName) {
       setErrorMessage("Enter project name to continue");
     } else {
+      // Create a new task object
       const newTask = {
+        id: Date.now(),
         projectName,
         taskDescription,
         timestamp: new Date(),
         duration: 0,
       };
+
+      // Update task list state and persist to localStorage
       SetTaskList((prev) => {
         const updated = [...prev, newTask];
         localStorage.setItem("taskList", JSON.stringify(updated));
         return updated;
       });
+
+      // Close modal after adding task
       setAddModal(false);
+
+      // Reset input fields
       setProjectName("");
       setTaskDescription("");
     }
   };
+
   return (
     <>
       <button
@@ -116,4 +142,5 @@ const AddTask = ({ tasklist, SetTaskList }) => {
   );
 };
 
+// Exports the component as the default export
 export default AddTask;
